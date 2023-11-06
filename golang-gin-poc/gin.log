@@ -7,3 +7,12 @@
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
+::1 - 0s GET /videos 401 [06 Nov 23 16:40 EAT] map[] 
+::1 - 0s GET /videos 200 [06 Nov 23 16:41 EAT] map[user:karisa] 
+[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 400 with 200
+::1 - 2.6228ms POST /videos 400 [06 Nov 23 16:41 EAT] map[user:karisa] 
+::1 - 0s GET /videos 200 [06 Nov 23 16:41 EAT] map[user:karisa] 
+::1 - 0s GET /videos 200 [06 Nov 23 16:44 EAT] map[user:karisa] 
+::1 - 0s GET /videos 401 [06 Nov 23 16:44 EAT] map[] 
+::1 - 2.1035ms GET /videos 401 [06 Nov 23 16:53 EAT] map[] 
+::1 - 2.7519ms GET /videos 200 [06 Nov 23 16:53 EAT] map[user:karisa] 
