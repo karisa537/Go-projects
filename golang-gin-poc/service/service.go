@@ -5,7 +5,7 @@ import (
 )
 
 type VideoService interface{
-	Save(entity.Video)
+	Save(entity.Video) entity.Video
 	FindAll() []entity.Video
 }
 
@@ -17,9 +17,9 @@ func New() VideoService {
 	return &videoService{}
 }
 
-func (service *videoService) Save(video entity.Video) {
+func (service *videoService) Save(video entity.Video) entity.Video {
 	service.videos = append(service.videos, video)
-	return video()
+	return video
 }
 
 func (service *videoService) FindAll() []entity.Video {
