@@ -26,21 +26,31 @@
 // 	server.Run(":8080")
 // }
 
-
 package main
 
 import (
-	"github.com/karisa/golang-gin-poc/service"
-	"github.com/karisa/golang-gin-poc/controller"
+	"io"
+	"os"
+
 	"github.com/gin-gonic/gin"
+	"github.com/karisa/golang-gin-poc/controller"
 	"github.com/karisa/golang-gin-poc/entity" // Add the import for entity
+	"github.com/karisa/golang-gin-poc/middleware"
+	"github.com/karisa/golang-gin-poc/service"
 )
 
+
+func setUpLogOutPut(){
+	f, _ := os.Create("gin.log")
+	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
+}
 func main() {
+	setUpLogOutPut()
 	videoService := service.New()
 	videoController := controller.New(videoService)
 
-	server := gin.Default()
+	server := gin.New()
+	server.Use(gin.Recovery(), middleware.Logger(), middleware.BasicAuth())
 
 	server.GET("/videos", func(ctx *gin.Context) {
 		ctx.JSON(200, videoController.FindAll())
