@@ -29,14 +29,13 @@
 package main
 
 import (
-	"io"
-	"os"
-
 	"github.com/gin-gonic/gin"
 	"github.com/karisa/golang-gin-poc/controller"
 	"github.com/karisa/golang-gin-poc/entity" // Add the import for entity
 	"github.com/karisa/golang-gin-poc/middleware"
 	"github.com/karisa/golang-gin-poc/service"
+	"io"
+	"os"
 )
 
 
